@@ -1,0 +1,27 @@
+package com.axys.redeflexmobile.shared.manager;
+
+import androidx.annotation.Nullable;
+
+import com.axys.redeflexmobile.shared.models.Cliente;
+import com.axys.redeflexmobile.shared.models.Pendencia;
+import com.axys.redeflexmobile.shared.models.SolicitacaoPrecoDiferenciado;
+
+import java.util.List;
+
+import io.reactivex.Observable;
+import io.reactivex.Single;
+
+public interface SolicitacaoPDManager {
+
+    @Nullable
+    // Pendencia obterPorId(String id);
+
+    Observable<List<SolicitacaoPrecoDiferenciado>> obterTodos();
+
+//    Single<List<SolicitacaoPrecoDiferenciado>> serverGetAll(String vendedorId, String carga);
+//
+//    Single<SolicitacaoPrecoDiferenciado> save(Pendencia pendencia);
+//
+//    Observable<List<Cliente>> obterTodosComCliente(List<Cliente> pendenciaClientes);
+
+}

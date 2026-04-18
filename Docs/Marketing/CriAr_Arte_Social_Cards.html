@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrIAr UX Engine - Sprint 1 (Maio 2026)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cr-navy: #0e1e40;
+            --cr-sage: #6a9c82;
+        }
+
+        body {
+            background-color: #e5e5e5;
+            margin: 0; padding: 40px;
+            display: flex; flex-direction: column; align-items: center; gap: 40px;
+        }
+
+        /* Cada Post é uma Lâmina/Página isolada de 1080x1080 */
+        .linkedin-post {
+            width: 1080px;
+            height: 1080px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.2);
+            position: relative;
+            font-family: 'Outfit', sans-serif;
+            color: var(--cr-navy);
+            overflow: hidden;
+            background-color: #fff; /* fallback */
+        }
+        
+        /* O Degrade sempre protege a legibilidade na esquerda */
+        .gradient-filter {
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.0) 100%);
+            z-index: 1;
+        }
+
+        .brand-header {
+            position: absolute;
+            bottom: 80px; 
+            left: 80px;
+            z-index: 10;
+        }
+
+        .brand-header img {
+            height: 88px; 
+        }
+
+        .content-box {
+            position: absolute;
+            top: 180px; 
+            left: 80px;
+            width: 720px; 
+            z-index: 5;
+        }
+
+        .line-accent {
+            width: 60px;
+            height: 4px; 
+            background-color: var(--cr-sage);
+            margin-bottom: 40px;
+            border-radius: 4px;
+        }
+
+        .text-main {
+            font-size: 72px;
+            line-height: 1.15;
+            font-weight: 600;
+            letter-spacing: -1.5px;
+            margin-bottom: 30px;
+            color: var(--cr-navy);
+        }
+
+        .highlight-editorial { color: var(--cr-sage); }
+
+        .text-sub {
+            font-size: 28px; 
+            font-weight: 400;
+            color: rgba(14, 30, 64, 0.7);
+            line-height: 1.5;
+            letter-spacing: -0.2px;
+            max-width: 90%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SPRINT 1 - HEALTH B2B CONSULTIVO -->
+
+    <!-- POST 1: Ética -->
+    <div class="linkedin-post" style="background-image: url('file:///C:/Users/renato.torelli/.gemini/antigravity/brain/ca977256-c36b-4baf-8431-aab0c2a574f7/bg_sprint1_post1_health_1776544727132.png');">
+        <div class="gradient-filter"></div>
+        <div class="brand-header"><img src="../../Criar Consulting.png" alt="CrIAr Consulting"></div>
+        <div class="content-box">
+            <div class="line-accent"></div>
+            <div class="text-main">A pequena distância entre<br>a <span class="highlight-editorial">Eficiência</span> e a <span class="highlight-editorial">Ética</span>.</div>
+            <div class="text-sub">A tecnologia inova o consultório. A CrIAr audita e blinda o seu sigilo perante o CFP/CFM e a LGPD.</div>
+        </div>
+    </div>
+
+    <!-- POST 2: Áudios -->
+    <div class="linkedin-post" style="background-image: url('file:///C:/Users/renato.torelli/.gemini/antigravity/brain/ca977256-c36b-4baf-8431-aab0c2a574f7/bg_post2_health_audio_1776545002394.png');">
+        <div class="gradient-filter"></div>
+        <div class="brand-header"><img src="../../Criar Consulting.png" alt="CrIAr Consulting"></div>
+        <div class="content-box">
+            <div class="line-accent"></div>
+            <div class="text-main">A tecnologia sempre deve respeitar a nossa<br><span class="highlight-editorial">Humanidade</span>.</div>
+            <div class="text-sub">Ouvimos as dores do paciente com empatia. Proteger essas conversas no mundo digital é nossa maior obrigação.</div>
+        </div>
+    </div>
+
+    <!-- POST 3: Dados Livres -->
+    <div class="linkedin-post" style="background-image: url('file:///C:/Users/renato.torelli/.gemini/antigravity/brain/ca977256-c36b-4baf-8431-aab0c2a574f7/bg_post3_health_waiting_1776545014722.png');">
+        <div class="gradient-filter"></div>
+        <div class="brand-header"><img src="../../Criar Consulting.png" alt="CrIAr Consulting"></div>
+        <div class="content-box">
+            <div class="line-accent"></div>
+            <div class="text-main">Aonde os seus dados financeiros de sua clínica descansam após o<br><span class="highlight-editorial">expediente</span>?</div>
+            <div class="text-sub">As letras miúdas de agendas gratuitas. Assuma o controle soberano das informações do seu consultório.</div>
+        </div>
+    </div>
+
+    <!-- POST 4: Auditoria Express -->
+    <div class="linkedin-post" style="background-image: url('file:///C:/Users/renato.torelli/.gemini/antigravity/brain/ca977256-c36b-4baf-8431-aab0c2a574f7/bg_post4_health_audit_1776545031812.png');">
+        <div class="gradient-filter"></div>
+        <div class="brand-header"><img src="../../Criar Consulting.png" alt="CrIAr Consulting"></div>
+        <div class="content-box">
+            <div class="line-accent"></div>
+            <div class="text-main">A auditoria da sua clínica<br>não deve gerar <span class="highlight-editorial">Atrito</span>.</div>
+            <div class="text-sub">Identificamos os riscos latentes do uso da I.A. no seu consultório em até 48h, de forma silenciosa e consultiva.</div>
+        </div>
+    </div>
+
+    <!-- POST 5: Whitepaper -->
+    <div class="linkedin-post" style="background-image: url('file:///C:/Users/renato.torelli/.gemini/antigravity/brain/ca977256-c36b-4baf-8431-aab0c2a574f7/bg_post5_health_whitepaper_1776545056865.png');">
+        <div class="gradient-filter"></div>
+        <div class="brand-header"><img src="../../Criar Consulting.png" alt="CrIAr Consulting"></div>
+        <div class="content-box">
+            <div class="line-accent"></div>
+            <div class="text-main">Guia Executivo: <br>Adoção Ética de <span class="highlight-editorial">I.A</span> <br>para Clínicas.</div>
+            <div class="text-sub">Baixe gratuitamente nosso novo manual de bolso. Traduzimos as normas americanas para a rotina do CRM e LGPD brasileira.</div>
+        </div>
+    </div>
+
+    <!-- POST 6: Privacidade -->
+    <div class="linkedin-post" style="background-image: url('file:///C:/Users/renato.torelli/.gemini/antigravity/brain/ca977256-c36b-4baf-8431-aab0c2a574f7/bg_post6_health_cloud_1776545071015.png');">
+        <div class="gradient-filter"></div>
+        <div class="brand-header"><img src="../../Criar Consulting.png" alt="CrIAr Consulting"></div>
+        <div class="content-box">
+            <div class="line-accent"></div>
+            <div class="text-main">A autonomia e o direito de saber o que reside na sua<br><span class="highlight-editorial">Nuvem</span>.</div>
+            <div class="text-sub">O profissional de saúde é responsável pelas ferramentas que dão suporte à sua atuação clínica. Inove com responsabilidade.</div>
+        </div>
+    </div>
+
+    <!-- POST 7: Status & Express Health -->
+    <div class="linkedin-post" style="background-image: url('file:///C:/Users/renato.torelli/.gemini/antigravity/brain/ca977256-c36b-4baf-8431-aab0c2a574f7/bg_post7_health_express_1776545084645.png');">
+        <div class="gradient-filter"></div>
+        <div class="brand-header"><img src="../../Criar Consulting.png" alt="CrIAr Consulting"></div>
+        <div class="content-box">
+            <div class="line-accent"></div>
+            <div class="text-main">Inovação técnica acompanhada de verdadeira <span class="highlight-editorial">Responsabilidade</span>.</div>
+            <div class="text-sub">Uma clínica que exibe o selo de auditoria CrIAr transparece proteção máxima para o seu paciente final.</div>
+        </div>
+    </div>
+
+    <!-- POST 8: Partnership -->
+    <div class="linkedin-post" style="background-image: url('file:///C:/Users/renato.torelli/.gemini/antigravity/brain/ca977256-c36b-4baf-8431-aab0c2a574f7/bg_post8_health_partnership_1776545100771.png');">
+        <div class="gradient-filter"></div>
+        <div class="brand-header"><img src="../../Criar Consulting.png" alt="CrIAr Consulting"></div>
+        <div class="content-box">
+            <div class="line-accent"></div>
+            <div class="text-main">Nós cuidamos da TI da sua clínica, enquanto você cuida do seu <span class="highlight-editorial">Paciente</span>.</div>
+            <div class="text-sub">Foque na sua especialidade e confie em parceiros consultivos para mitigar e escalar as operações. Agende um café online conosco.</div>
+        </div>
+    </div>
+
+
+</body>
+</html>
