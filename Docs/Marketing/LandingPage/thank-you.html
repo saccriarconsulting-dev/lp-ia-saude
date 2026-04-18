@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Liberado | CrIAr Consulting</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .thank-you-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            flex-direction: column;
+            z-index: 10;
+        }
+        .thank-you-card {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
+            max-width: 600px;
+            border-top: 6px solid var(--cr-sage);
+        }
+        .icon-success {
+            font-size: 64px;
+            color: var(--cr-sage);
+            margin-bottom: 20px;
+            display: block;
+        }
+        .ty-title {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        .ty-text {
+            font-size: 18px;
+            color: rgba(14, 30, 64, 0.7);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        .btn-download {
+            display: inline-block;
+            background-color: var(--cr-navy);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .btn-download:hover {
+            transform: translateY(-2px);
+            background-color: #081226;
+        }
+        .email-note {
+            margin-top: 30px;
+            font-size: 14px;
+            color: rgba(14, 30, 64, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container thank-you-wrapper">
+        <div class="thank-you-card">
+            <header style="margin-bottom: 40px;">
+                <img src="../../../logo.png" alt="CrIAr Consulting" class="logo" style="height: 120px; margin: 0 auto; display:block;" onerror="this.src='https://placehold.co/200x50/0e1e40/FFF?text=CrIAr+Consulting';">
+            </header>
+            
+            <span class="icon-success">✓</span>
+            <h1 class="ty-title">Conteúdo Liberado!</h1>
+            
+            <div style="margin-top: 40px; margin-bottom: 40px;">
+                <a href="whitepaper.html" class="btn-download">Acessar Guia de Leitura Rápida</a>
+            </div>
+            
+            <p class="email-note">Nós também enviamos uma cópia do link de acesso para o e-mail cadastrado.<br>A partir de hoje conte com a CrIAr para sua inovação clínica.</p>
+        </div>
+    </div>
+    <div class="bg-layer" style="background-image: url('bg_thanks.png'); opacity: 0.05;"></div>
+</body>
+</html>
