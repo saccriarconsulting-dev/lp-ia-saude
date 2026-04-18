@@ -50,7 +50,6 @@
                     <h2>Acesse o Guia Completo</h2>
                     
                     <form id="lead-form" action="https://formspree.io/f/xvzdrqpn" method="POST">
-                        <input type="hidden" name="_next" value="./thank-you.html">
                         
                         <div class="input-group">
                             <label for="firstName">Qual seu Primeiro Nome?</label>
@@ -79,5 +78,38 @@
     <!-- Background Image Layer -->
     <div class="bg-layer" style="background-image: url('bg_lp.png');"></div>
 
+    <script>
+        document.getElementById('lead-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const button = form.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.disabled = true;
+            button.textContent = 'Enviando...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    window.location.href = 'thank-you.html';
+                } else {
+                    alert('Erro ao enviar. Por favor, verifique seus dados e tente novamente.');
+                    button.disabled = false;
+                    button.textContent = originalText;
+                }
+            } catch (error) {
+                alert('Erro de conexão. Por favor, tente novamente.');
+                button.disabled = false;
+                button.textContent = originalText;
+            }
+        });
+    </script>
 </body>
 </html>
