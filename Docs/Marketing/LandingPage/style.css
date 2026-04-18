@@ -220,8 +220,18 @@ h1 {
 
 /* Responsivo */
 @media (max-width: 968px) {
+    .container {
+        padding: 30px 15px;
+    }
+    
+    .lp-header {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
     .content-split {
         flex-direction: column;
+        gap: 40px;
     }
     
     .bg-layer {
@@ -232,6 +242,36 @@ h1 {
     }
     
     h1 {
-        font-size: 40px;
+        font-size: 38px;
+        text-align: center;
+    }
+    
+    .subtitle {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .form-section {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    .logo {
+        height: 80px; /* Redimensionamento suave para telas pequenas */
+    }
+
+    .form-card {
+        padding: 25px 20px;
+    }
+
+    .tag {
+        display: block;
+        text-align: center;
     }
 }
