@@ -57,11 +57,32 @@
         }
         .alert-title { font-weight: 700; font-size: 20px; margin-bottom: 10px; display: block; }
         
+        .practice-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 40px;
+            margin: 50px 0;
+            border-top: 4px solid var(--cr-navy);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        
         @media (max-width: 768px) {
             .webbook-container { padding: 40px 30px; }
             h1 { font-size: 32px; }
             h2 { font-size: 26px; }
             p, ul { font-size: 17px; }
+        }
+
+        @media (max-width: 480px) {
+            .webbook-container { padding: 30px 15px; border-top-width: 6px; }
+            .brand-header { flex-direction: column; align-items: flex-start; gap: 15px; margin-bottom: 40px; padding-bottom: 20px;}
+            .brand-header img { height: 45px; max-width: 100%; object-fit: contain;}
+            h1 { font-size: 28px; margin-bottom: 30px; }
+            h2 { font-size: 22px; margin-top: 40px; }
+            h3 { font-size: 20px; }
+            p, ul { font-size: 16px; }
+            .alert-box { padding: 20px 15px; margin: 30px 0; border-left-width: 3px; }
+            .practice-box { padding: 25px 15px; margin: 30px 0; }
         }
     </style>
 </head>
@@ -119,7 +140,7 @@
         <li><strong>Plano Conciso de Resposta:</strong> Você deve poder dizer ao paciente: <em>"A forma como eu gerencio o meu assistente médico I.A destrói os rastros da sua identidade antes que cheguem na internet."</em></li>
     </ul>
 
-    <div style="background-color: white; border: 1px solid #ddd; padding: 40px; margin: 50px 0; border-top: 4px solid var(--cr-navy); box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+    <div class="practice-box">
         <h2 style="margin-top: 0; color: var(--cr-navy); border-bottom: none;"><span style="color: var(--cr-sage);">Mão na Massa:</span> Onde o Risco Clínico Mora (e Como Evitá-lo)</h2>
         <p style="margin-bottom: 30px;">Para sairmos da teoria, a <strong>CrIAr Consulting</strong> mapeou as 3 aplicações mais comuns da inteligência artificial pelos profissionais de saúde focados em <em>Vibe Coding</em> hoje, trazendo a solução técnica validada pela lei:</p>
         
