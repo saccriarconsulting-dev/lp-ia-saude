@@ -49,7 +49,7 @@
                 <div class="form-card">
                     <h2>Acesse o Guia Completo</h2>
                     
-                    <form id="lead-form" action="https://formspree.io/f/xvzdrqpn" method="POST">
+                    <form id="lead-form">
                         
                         <div class="input-group">
                             <label for="firstName">Qual seu Primeiro Nome?</label>
@@ -79,31 +79,44 @@
     <div class="bg-layer" style="background-image: url('bg_lp.png');"></div>
 
     <script>
+        // ══════════════════════════════════════════════════════════════
+        // CrIAr Consulting — Backend Soberano (Google Apps Script)
+        // INSTRUÇÃO: Cole abaixo a URL gerada pelo seu Google Apps Script
+        // ══════════════════════════════════════════════════════════════
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwT6HzBkhi5kMJJORXD0KLyzDfnnBGMEsgaZ8X-hsu6tjSDuzKSGuseTfkpCyfIgZ4/exec";
+
         document.getElementById('lead-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const form = e.target;
-            const button = form.querySelector('button[type="submit"]');
+
+            const button = this.querySelector('button[type="submit"]');
             const originalText = button.textContent;
-            
+
+            // Validação defensiva do deploy
+            if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === "COLE_SUA_URL_AQUI") {
+                alert('Erro interno: endpoint não configurado. Contate o suporte.');
+                return;
+            }
+
             button.disabled = true;
             button.textContent = 'Enviando...';
 
+            const payload = {
+                firstName: document.getElementById('firstName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+            };
+
             try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                const response = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify(payload),
                 });
-                
-                if (response.ok) {
-                    window.location.href = 'thank-you.html';
-                } else {
-                    alert('Erro ao enviar. Por favor, verifique seus dados e tente novamente.');
-                    button.disabled = false;
-                    button.textContent = originalText;
-                }
+
+                // Google Apps Script com mode: 'no-cors' retorna opaque response
+                // Isso é esperado — o POST foi enviado com sucesso
+                window.location.href = 'thank-you.html';
+
             } catch (error) {
                 alert('Erro de conexão. Por favor, tente novamente.');
                 button.disabled = false;
