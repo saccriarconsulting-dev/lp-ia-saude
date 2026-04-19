@@ -122,6 +122,11 @@
             hiddenForm.target = iframeName;
             hiddenForm.style.display = 'none';
 
+            const inputName = document.createElement('input');
+            inputName.name = 'firstName';
+            inputName.value = firstName;
+            hiddenForm.appendChild(inputName);
+
             const inputEmail = document.createElement('input');
             inputEmail.name = 'email';
             inputEmail.value = email;
