@@ -14,6 +14,10 @@
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Security: Honeypot field - Keep hidden from real users */
+        .honey { position: absolute; left: -9999px; top: -9999px; height: 1px; width: 1px; opacity: 0; pointer-events: none; }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -50,6 +54,11 @@
                     <h2>Acesse o Guia Completo</h2>
                     
                     <form id="lead-form">
+                        <!-- Security: Honeypot field. Bots will fill this, humans won't. -->
+                        <div class="honey">
+                            <label for="website">Leave this empty if you are human:</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
                         
                         <div class="input-group">
                             <label for="firstName">Qual seu Primeiro Nome?</label>
@@ -95,6 +104,10 @@
 
             const firstName = document.getElementById('firstName').value.trim();
             const email = document.getElementById('email').value.trim();
+            const honeypot = document.getElementById('website').value; // Bot check
+
+            const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwT6HzBkhi5kMJJORXD0KLyzDfnnBGMEsgaZ8X-hsu6tjSDuzKSGuseTfkpCyfIgZ4/exec';
+            const SECURITY_TOKEN = 'CRIAR_SEC_2026_PRO'; 
 
             // Técnica: iframe oculto + form real (bypassa CORS e segue 302 do Google)
             const iframeName = 'criar-submit-' + Date.now();
@@ -109,15 +122,26 @@
             hiddenForm.target = iframeName;
             hiddenForm.style.display = 'none';
 
-            const inputName = document.createElement('input');
-            inputName.name = 'firstName';
-            inputName.value = firstName;
-            hiddenForm.appendChild(inputName);
-
             const inputEmail = document.createElement('input');
             inputEmail.name = 'email';
             inputEmail.value = email;
             hiddenForm.appendChild(inputEmail);
+
+            // Campos de Segurança
+            const inputToken = document.createElement('input');
+            inputToken.name = 'token';
+            inputToken.value = SECURITY_TOKEN;
+            hiddenForm.appendChild(inputToken);
+
+            const inputOrigin = document.createElement('input');
+            inputOrigin.name = 'origin_domain';
+            inputOrigin.value = window.location.hostname;
+            hiddenForm.appendChild(inputOrigin);
+
+            const inputHoney = document.createElement('input');
+            inputHoney.name = 'website';
+            inputHoney.value = honeypot;
+            hiddenForm.appendChild(inputHoney);
 
             document.body.appendChild(hiddenForm);
             hiddenForm.submit();
