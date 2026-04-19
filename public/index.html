@@ -81,47 +81,53 @@
     <script>
         // ══════════════════════════════════════════════════════════════
         // CrIAr Consulting — Backend Soberano (Google Apps Script)
-        // INSTRUÇÃO: Cole abaixo a URL gerada pelo seu Google Apps Script
         // ══════════════════════════════════════════════════════════════
         const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwT6HzBkhi5kMJJORXD0KLyzDfnnBGMEsgaZ8X-hsu6tjSDuzKSGuseTfkpCyfIgZ4/exec";
 
-        document.getElementById('lead-form').addEventListener('submit', async function(e) {
+        document.getElementById('lead-form').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const button = this.querySelector('button[type="submit"]');
             const originalText = button.textContent;
 
-            // Validação defensiva do deploy
-            if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === "COLE_SUA_URL_AQUI") {
-                alert('Erro interno: endpoint não configurado. Contate o suporte.');
-                return;
-            }
-
             button.disabled = true;
             button.textContent = 'Enviando...';
 
-            const payload = {
-                firstName: document.getElementById('firstName').value.trim(),
-                email: document.getElementById('email').value.trim(),
-            };
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
 
-            try {
-                const response = await fetch(APPS_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'text/plain' },
-                    body: JSON.stringify(payload),
-                });
+            // Técnica: iframe oculto + form real (bypassa CORS e segue 302 do Google)
+            const iframeName = 'criar-submit-' + Date.now();
+            const iframe = document.createElement('iframe');
+            iframe.name = iframeName;
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
 
-                // Google Apps Script com mode: 'no-cors' retorna opaque response
-                // Isso é esperado — o POST foi enviado com sucesso
+            const hiddenForm = document.createElement('form');
+            hiddenForm.method = 'POST';
+            hiddenForm.action = APPS_SCRIPT_URL;
+            hiddenForm.target = iframeName;
+            hiddenForm.style.display = 'none';
+
+            const inputName = document.createElement('input');
+            inputName.name = 'firstName';
+            inputName.value = firstName;
+            hiddenForm.appendChild(inputName);
+
+            const inputEmail = document.createElement('input');
+            inputEmail.name = 'email';
+            inputEmail.value = email;
+            hiddenForm.appendChild(inputEmail);
+
+            document.body.appendChild(hiddenForm);
+            hiddenForm.submit();
+
+            // Redireciona após tempo suficiente para o POST ser processado
+            setTimeout(function() {
+                document.body.removeChild(iframe);
+                document.body.removeChild(hiddenForm);
                 window.location.href = 'thank-you.html';
-
-            } catch (error) {
-                alert('Erro de conexão. Por favor, tente novamente.');
-                button.disabled = false;
-                button.textContent = originalText;
-            }
+            }, 2000);
         });
     </script>
 </body>
